@@ -1,0 +1,22 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n=int(raw_input().strip())
+
+def apply(function):
+    def input(data_list):
+        sorted_list=sorted([function(i) for i in data_list])
+        results=[i.split()[2]+' '+i.split()[3]+' '+i.split()[4] for i in sorted_list]
+        return results
+    return input
+@apply
+def format(record):
+    fn,ln,age, sex,index=record.split()
+    sex='Mr.' if sex=='M' else 'Ms.'
+    results=age+' '+index+' '+sex+' '+fn+' '+ln
+    return results
+
+data_list=[]
+for i in xrange(n):
+    input=raw_input()
+    data=input+' '+str(i)
+    data_list.append(data)
+print '\n'.join(format(data_list))
