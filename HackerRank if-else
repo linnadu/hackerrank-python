@@ -1,0 +1,21 @@
+class solution:
+    def __init__(self, n):
+        self.n=n;
+    def findWird(self):
+        results = ""
+        if self.n % 2 != 0:
+            results = "Weird"
+        else:
+            if 2 <= self.n <= 5:
+                results = "Not Weird"
+            elif self.n<= 20:
+                results = "Weird"
+            else:
+                results = "Not Weird"
+        return results
+
+
+if __name__ == '__main__':
+    n = int(input())
+    qq = solution(n)
+    print(qq.findWird())
